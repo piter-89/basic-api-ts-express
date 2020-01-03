@@ -1,11 +1,13 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as products from './products';
+import * as cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 3010; // for heroku deploy
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get("/", (req, res, next) => {
   res.send("PUBLIC API");
